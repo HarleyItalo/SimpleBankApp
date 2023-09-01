@@ -14,12 +14,12 @@ class CommonModule extends BaseModule {
   }) : super(instance: instance);
 
   @override
-  Future init() async {
+  Future init() async {}
+
+  @override
+  Future injectModule() async {
     instance.registerLazySingletonAsync(
       () async => HttpService(client: client),
     );
   }
-
-  @override
-  Future injectModule() async {}
 }
