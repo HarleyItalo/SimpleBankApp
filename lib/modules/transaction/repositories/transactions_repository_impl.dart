@@ -1,9 +1,5 @@
-import 'package:simple_bank_app/modules/common/models/base_response.dart';
-import 'package:simple_bank_app/modules/common/services/http_service.dart';
-import 'package:simple_bank_app/modules/transaction/models/all_transactions_model.dart';
-import 'package:simple_bank_app/modules/transaction/models/balance_model.dart';
-import 'package:simple_bank_app/modules/transaction/models/create_transaction_model.dart';
-import 'package:simple_bank_app/modules/transaction/repositories/transactions_repository.dart';
+import '../../common/common_module.dart';
+import '../transaction_module.dart';
 
 class TransactionsRepositoryImpl extends TransactionsRepository {
   final HttpService _httpService;

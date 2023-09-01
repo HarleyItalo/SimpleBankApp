@@ -1,7 +1,5 @@
-import 'package:simple_bank_app/modules/account/models/account_model.dart';
-import 'package:simple_bank_app/modules/account/models/create_account_model.dart';
-import 'package:simple_bank_app/modules/account/repositories/account_repository.dart';
-import 'package:simple_bank_app/modules/common/services/http_service.dart';
+import '../../common/common_module.dart';
+import '../account_module.dart';
 
 class AccountRepositoryImpl implements AccountRepository {
   final HttpService _httpService;
