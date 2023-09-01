@@ -1,4 +1,4 @@
-import 'package:simple_bank_app/modules/transaction/transaction_module.dart';
+import '../transaction_module.dart';
 
 class AllTransactionsByAccountImpl implements AllTransactionsByAccount {
   final TransactionsRepository _repository;
