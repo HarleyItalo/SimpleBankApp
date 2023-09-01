@@ -1,7 +1,11 @@
-import 'package:simple_bank_app/modules/transaction/models/balance_model.dart';
+import '../transaction_module.dart';
 
-abstract class FindBalance {
-  Future<BalanceModel> call({
-    required int accountId,
-  });
+class FindBalanceImpl implements FindBalance {
+  final TransactionsRepository _repository;
+  FindBalanceImpl(this._repository);
+
+  @override
+  Future<BalanceModel> call({required int accountId}) async {
+    return _repository.findBalance(accountId: accountId);
+  }
 }
