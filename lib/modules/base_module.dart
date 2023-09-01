@@ -6,7 +6,6 @@ abstract class BaseModule {
     required this.instance,
   }) {
     injectModule();
-    init();
   }
   Future injectModule();
   Future init();

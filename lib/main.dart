@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:simple_bank_app/modules/routes.dart';
+import 'package:simple_bank_app/modules/service_locator.dart';
 
-void main() {
+void main() async {
+  await ServiceLocator().init();
   runApp(const MyApp());
 }
 
