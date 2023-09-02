@@ -41,6 +41,8 @@ git clone https://github.com/HarleyItalo/SimpleBank.git
 Put the backend project live following the project's readme.md SimpleBank
 
 ### 6
+before run go to lib/modules/common/constants/constants.dart
+and set your ip address.
 go back to the APP folder and run:
 
 ```sh
