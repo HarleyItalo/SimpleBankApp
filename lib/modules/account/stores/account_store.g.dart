@@ -41,6 +41,22 @@ mixin _$AccountStore on AccountStoreBase, Store {
     });
   }
 
+  late final _$getAccountAsyncAction =
+      AsyncAction('AccountStoreBase.getAccount', context: context);
+
+  @override
+  Future<dynamic> getAccount(int accountId) {
+    return _$getAccountAsyncAction.run(() => super.getAccount(accountId));
+  }
+
+  late final _$createAccountAsyncAction =
+      AsyncAction('AccountStoreBase.createAccount', context: context);
+
+  @override
+  Future<AccountModel> createAccount(CreateAccountModel model) {
+    return _$createAccountAsyncAction.run(() => super.createAccount(model));
+  }
+
   late final _$AccountStoreBaseActionController =
       ActionController(name: 'AccountStoreBase', context: context);
 

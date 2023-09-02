@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:go_router/go_router.dart';
+import 'package:simple_bank_app/modules/account/views/view_account_info/widgets/profile.dart';
 import 'package:simple_bank_app/modules/account/views/view_account_info/widgets/transactions_list.dart';
-import 'package:simple_bank_app/modules/common/utils/string_util.dart';
-
 import '../../../common/common_module.dart';
 import '../../../transaction/stores/transaction_store.dart';
 import '../../account_module.dart';
@@ -52,58 +50,39 @@ class _ViewAccountInfoState extends State<ViewAccountInfo> {
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(),
+          Profile(
+              accountStore: accountStore, transactionsStore: transactionsStore),
           SliverToBoxAdapter(
-            child: Observer(
-              builder: (_) {
-                var account = accountStore.account;
-                var balance = transactionsStore.balance;
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(20),
-                            margin: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primaryContainer),
-                            child: Icon(
-                              CupertinoIcons.person,
-                              size: 50,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Hello, ${account?.name ?? ''} ${account?.lastName ?? ''}",
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.titleLarge,
-                              ),
-                              Text(
-                                "Your Balance is: ${StringUtil.formatCurrency(balance)}",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  FilledButton.icon(
+                    onPressed: () {
+                      context.push('/transaction/credit/${widget.accountId}');
+                    },
+                    icon: const Icon(CupertinoIcons.add),
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text('Deposit'),
+                    ),
                   ),
-                );
-              },
+                  FilledButton.icon(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(
+                            Theme.of(context).colorScheme.error)),
+                    onPressed: () {
+                      context.push('/transaction/debit/${widget.accountId}');
+                    },
+                    icon: const Icon(CupertinoIcons.minus),
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text('Debit'),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           TransactionsList(transactionsStore: transactionsStore)
