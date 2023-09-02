@@ -8,7 +8,7 @@ class BalanceModel {
   BalanceModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    balance = json['balance'] * 1.0;
+    if (json['balance'] != null) balance = json['balance'] * 1.0;
   }
 
   Map<String, dynamic> toJson() {

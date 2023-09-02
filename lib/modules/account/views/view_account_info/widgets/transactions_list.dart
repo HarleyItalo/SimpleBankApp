@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:simple_bank_app/modules/account/views/view_account_info/widgets/empty.dart';
 import 'package:simple_bank_app/modules/common/utils/string_util.dart';
 import 'package:simple_bank_app/modules/transaction/stores/transaction_store.dart';
 
@@ -16,6 +17,11 @@ class TransactionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       var transactions = transactionsStore.transactions;
+      if (transactions.isEmpty) {
+        return const Empty(
+            title: "You don't have any transaction",
+            icon: CupertinoIcons.exclamationmark_circle);
+      }
       return SliverPadding(
         padding: const EdgeInsets.all(10.0),
         sliver: SliverList.builder(
