@@ -1,16 +1,55 @@
 # simple_bank_app
 
-A new Flutter project.
+## Steps to install and test
 
-## Getting Started
+### 1
+Install flutter according to the documentation at:
+https://docs.flutter.dev/get-started/install
 
-This project is a starting point for a Flutter application.
+### 2
+Run:
+```sh
+flutter doctor 
+```
+to check your enviroment
 
-A few resources to get you started if this is your first Flutter project:
+### 3 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Clone project:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+git clone https://github.com/HarleyItalo/SimpleBankApp.git
+```
+
+### 4
+Run:
+```sh
+flutter pub get
+```
+to get all packages dependencies.
+
+### 5
+
+clone project of backend on: 
+
+```sh
+git clone https://github.com/HarleyItalo/SimpleBank.git
+```
+
+### 5
+
+Put the backend project live following the project's readme.md SimpleBank
+
+### 6
+go back to the APP folder and run:
+
+```sh
+flutter run 
+```
+
+and select your platform.
+
+
+
+
+
