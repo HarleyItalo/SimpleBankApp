@@ -16,11 +16,13 @@ class AccountModel {
 class Account {
   String? name;
   String? lastName;
+  int? accoutId;
 
   Account({this.name, this.lastName});
 
   Account.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     lastName = json['lastName'];
+    accoutId = json['accoutId'];
   }
 }

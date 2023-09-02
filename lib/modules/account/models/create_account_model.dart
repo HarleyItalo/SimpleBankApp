@@ -1,9 +1,12 @@
 class CreateAccountModel {
   String? name;
   String? lastName;
-  int? initialBalance;
+  double? initialBalance;
 
-  CreateAccountModel({this.name, this.lastName, this.initialBalance});
+  CreateAccountModel(
+      {required this.name,
+      required this.lastName,
+      required this.initialBalance});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};

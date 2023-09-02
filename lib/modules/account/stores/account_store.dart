@@ -18,10 +18,17 @@ abstract class AccountStoreBase with Store {
     accountNumber = StringUtil.onlyNumbers(number);
   }
 
+  @action
   Future getAccount(int accountId) async {
     var accountModel = await serviceLocator.accountModule.findAccount(
       accountId,
     );
     account = accountModel.account;
+  }
+
+  @action
+  Future<AccountModel> createAccount(CreateAccountModel model) async {
+    var account = await serviceLocator.accountModule.createAccount(model);
+    return account;
   }
 }

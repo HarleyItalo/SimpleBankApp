@@ -26,6 +26,9 @@ class HttpService {
     required Map<String, dynamic> body,
     Map<String, String>? headers,
   }) async {
+    headers ??= <String, String>{};
+    headers['Content-Type'] = 'application/json';
+
     try {
       final response = await client.post(
         mountPath(path: path),
