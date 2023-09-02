@@ -12,6 +12,8 @@ export 'usercases/create_credit_transaction_impl.dart';
 export 'package:simple_bank_app/modules/base_module.dart';
 export 'usercases/create_debit_transaction_impl.dart';
 export 'usercases/find_balance_impl.dart';
+import 'package:simple_bank_app/modules/transaction/stores/transaction_store.dart';
+
 import 'transaction_module.dart';
 
 class TransactionModule extends BaseModule {
@@ -55,5 +57,6 @@ class TransactionModule extends BaseModule {
         await instance.getAsync(),
       ),
     );
+    instance.registerSingleton(TransactionStore());
   }
 }

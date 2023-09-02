@@ -6,6 +6,7 @@ export 'package:simple_bank_app/modules/account/models/create_account_model.dart
 export 'package:simple_bank_app/modules/account/usercases/create_account_impl.dart';
 export 'package:simple_bank_app/modules/account/usercases/find_account.dart';
 export 'package:simple_bank_app/modules/account/usercases/find_account_impl.dart';
+export 'package:simple_bank_app/modules/account/stores/account_store.dart';
 
 import 'package:simple_bank_app/modules/base_module.dart';
 import 'package:simple_bank_app/modules/account/account_module.dart';
@@ -37,5 +38,6 @@ class AccountModule extends BaseModule {
         await instance.getAsync(),
       ),
     );
+    instance.registerSingleton(AccountStore());
   }
 }

@@ -1,4 +1,3 @@
-import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 import 'package:simple_bank_app/modules/account/account_module.dart';
 import 'package:simple_bank_app/modules/common/common_module.dart';

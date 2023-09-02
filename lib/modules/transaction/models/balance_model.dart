@@ -1,14 +1,14 @@
 class BalanceModel {
   int? status;
   String? message;
-  int? balance;
+  double? balance;
 
   BalanceModel({this.status, this.message, this.balance});
 
   BalanceModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    balance = json['balance'];
+    balance = json['balance'] * 1.0;
   }
 
   Map<String, dynamic> toJson() {

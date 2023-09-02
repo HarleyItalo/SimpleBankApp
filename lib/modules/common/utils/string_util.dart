@@ -5,7 +5,7 @@ class StringUtil {
     return value != null ? value.replaceAll(RegExp(r'[^\d]'), '') : '';
   }
 
-  static String formatData(dynamic value, {format = "dd/MM/yyyy"}) {
+  static String formatData(dynamic value, {format = "E d MMM yyyy"}) {
     var date = DateTime.tryParse(value);
     if (date != null) {
       var formatter = DateFormat(format);
@@ -21,6 +21,11 @@ class StringUtil {
     }
     value = value.replaceAll('.', '').replaceAll(',', '.');
     return double.parse(value);
+  }
+
+  static String formatCurrency(dynamic currency) {
+    final formatCurrency = NumberFormat.simpleCurrency();
+    return formatCurrency.format(currency);
   }
 
   static bool isNullOrEmpty(String? value, {int minLenght = 2}) {
